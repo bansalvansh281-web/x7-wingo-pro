@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X7 WINGO PRO</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;background:#080b12;color:white;
+  font-family:Arial,sans-serif;text-align:center;
+}
+header{
+  padding:24px 10px;background:#121827;
+  border-bottom:2px solid #00e5ff;
+}
+h1{margin:0;color:#00e5ff;letter-spacing:2px}
+.tag{color:#aab4c8;margin-top:8px}
+.card{
+  background:#121827;margin:18px 14px;
+  padding:20px;border-radius:15px;
+  border:1px solid #26364a;
+}
+h2{font-size:18px;color:#00e5ff}
+#clock{font-size:35px;font-weight:bold}
+.buttons{display:flex;gap:10px;justify-content:center}
+button{
+  padding:13px 15px;border:0;border-radius:9px;
+  color:white;font-size:15px;font-weight:bold;
+}
+.red{background:#ef3340}
+.green{background:#00a86b}
+.violet{background:#8b45e9}
+.blue{background:#007bff}
+#result{font-size:23px;margin:15px 0;color:#00e5ff}
+li{padding:10px;border-bottom:1px solid #26364a}
+ul{list-style:none;padding:0}
+footer{padding:20px;color:#8592a8;font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚡ X7 WINGO PRO</h1>
+  <div class="tag">RESULTS & STATISTICS DASHBOARD</div>
+</header>
+
+<div class="card">
+  <h2>⏱️ LIVE TIMER</h2>
+  <div id="clock">00:30</div>
+  <p>30-second demo timer</p>
+</div>
+
+<div class="card">
+  <h2>🎯 DEMO PREDICTION</h2>
+  <p>Choose an option to record it</p>
+  <div class="buttons">
+    <button class="red" onclick="choose('RED')">RED</button>
+    <button class="green" onclick="choose('GREEN')">GREEN</button>
+    <button class="violet" onclick="choose('VIOLET')">VIOLET</button>
+  </div>
+  <div class="buttons" style="margin-top:12px">
+    <button class="blue" onclick="choose('BIG')">BIG</button>
+    <button class="blue" onclick="choose('SMALL')">SMALL</button>
+  </div>
+  <div id="result">Ready to start</div>
+</div>
+
+<div class="card">
+  <h2>📜 SELECTION HISTORY</h2>
+  <ul id="history">
+    <li>No selections yet</li>
+  </ul>
+  <button class="blue" onclick="clearHistory()">CLEAR HISTORY</button>
+</div>
+
+<footer>
+  Demo dashboard only. Timer and selections are not connected
+  to official Wingo results and do not predict future outcomes.
+</footer>
+
+<script>
+let seconds = 30;
+let history = [];
+
+function updateClock(){
+  seconds--;
+  if(seconds < 0) seconds = 30;
+  document.getElementById('clock').textContent =
+    '00:' + String(seconds).padStart(2,'0');
+}
+setInterval(updateClock, 1000);
+
+function choose(value){
+  document.getElementById('result').textContent =
+    'Selected: ' + value;
+  history.unshift(value);
+  renderHistory();
+}
+
+function renderHistory(){
+  document.getElementById('history').innerHTML =
+    history.length
+    ? history.slice(0,10).map((v,i)=>
+      '<li>'+(i+1)+'. '+v+'</li>').join('')
+    : '<li>No selections yet</li>';
+}
+
+function clearHistory(){
+  history=[];
+  renderHistory();
+  document.getElementById('result').textContent='Ready to start';
+}
+</script>
+
+</body>
+</html>
+
+writing{variant="standard" title="X7 WINGO PRO — Website Code" id="58314"}
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X7 WINGO PRO</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;background:#080b12;color:white;
+  font-family:Arial,sans-serif;text-align:center;
+}
+header{
+  padding:24px 10px;background:#121827;
+  border-bottom:2px solid #00e5ff;
+}
+h1{margin:0;color:#00e5ff;letter-spacing:2px}
+.tag{color:#aab4c8;margin-top:8px}
+.card{
+  background:#121827;margin:18px 14px;
+  padding:20px;border-radius:15px;
+  border:1px solid #26364a;
+}
+h2{font-size:18px;color:#00e5ff}
+#clock{font-size:35px;font-weight:bold}
+.buttons{display:flex;gap:10px;justify-content:center}
+button{
+  padding:13px 15px;border:0;border-radius:9px;
+  color:white;font-size:15px;font-weight:bold;
+}
+.red{background:#ef3340}
+.green{background:#00a86b}
+.violet{background:#8b45e9}
+.blue{background:#007bff}
+#result{font-size:23px;margin:15px 0;color:#00e5ff}
+li{padding:10px;border-bottom:1px solid #26364a}
+ul{list-style:none;padding:0}
+footer{padding:20px;color:#8592a8;font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚡ X7 WINGO PRO</h1>
+  <div class="tag">RESULTS & STATISTICS DASHBOARD</div>
+</header>
+
+<div class="card">
+  <h2>⏱️ LIVE TIMER</h2>
+  <div id="clock">00:30</div>
+  <p>30-second demo timer</p>
+</div>
+
+<div class="card">
+  <h2>🎯 DEMO PREDICTION</h2>
+  <p>Choose an option to record it</p>
+  <div class="buttons">
+    <button class="red" onclick="choose('RED')">RED</button>
+    <button class="green" onclick="choose('GREEN')">GREEN</button>
+    <button class="violet" onclick="choose('VIOLET')">VIOLET</button>
+  </div>
+  <div class="buttons" style="margin-top:12px">
+    <button class="blue" onclick="choose('BIG')">BIG</button>
+    <button class="blue" onclick="choose('SMALL')">SMALL</button>
+  </div>
+  <div id="result">Ready to start</div>
+</div>
+
+<div class="card">
+  <h2>📜 SELECTION HISTORY</h2>
+  <ul id="history">
+    <li>No selections yet</li>
+  </ul>
+  <button class="blue" onclick="clearHistory()">CLEAR HISTORY</button>
+</div>
+
+<footer>
+  Demo dashboard only. Timer and selections are not connected
+  to official Wingo results and do not predict future outcomes.
+</footer>
+
+<script>
+let seconds = 30;
+let history = [];
+
+function updateClock(){
+  seconds--;
+  if(seconds < 0) seconds = 30;
+  document.getElementById('clock').textContent =
+    '00:' + String(seconds).padStart(2,'0');
+}
+setInterval(updateClock, 1000);
+
+function choose(value){
+  document.getElementById('result').textContent =
+    'Selected: ' + value;
+  history.unshift(value);
+  renderHistory();
+}
+
+function renderHistory(){
+  document.getElementById('history').innerHTML =
+    history.length
+    ? history.slice(0,10).map((v,i)=>
+      '<li>'+(i+1)+'. '+v+'</li>').join('')
+    : '<li>No selections yet</li>';
+}
+
+function clearHistory(){
+  history=[];
+  renderHistory();
+  document.getElementById('result').textContent='Ready to start';
+}
+</script>
+
+</body>
+</html>
+```Dhyan dena bhai: Ye ek demo website hai. Timer aur buttons kaam karte hain, lekin ye asli Wingo se connected nahi hai aur winning predictions generate nahi karti.
+
+Agar tum ise aage badhana chahte ho, to agla step hoga website ko online publish karna aur usmein proper result statistics add karna.
+
+      
